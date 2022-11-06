@@ -19,7 +19,7 @@
 
 
   <tr th:each="user : ${users}">
-    <td th:utext="${user.}">id</td>
+    <td th:utext="${user}">id</td>
     <td th:utext="${user.getName()}">name</td>
     <td>
       <form th:action="@{/users/show/{id}(id=${user.getId()})}" th:object="${user}">

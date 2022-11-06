@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.sql.DriverManager;
 import java.util.Properties;
+
 @Configuration
 @PropertySource(value = "resources/db.properties")
 @EnableTransactionManagement
@@ -61,6 +62,7 @@ public class HibernateConfig {
         Properties properties = new Properties();
         properties.put("hibernate.hbm2ddl.auto", environment.getRequiredProperty("hibernate.hbm2ddl.auto"));
         properties.put("hibernate.show_sql", environment.getProperty("hibernate.show_sql"));
+        properties.setProperty("hibernate.dialect.MySQLDialect", environment.getProperty("hibernate.dialect"));
 
         return properties;
     }
